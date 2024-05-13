@@ -18,4 +18,4 @@ The output can tell you how a person sits, including back posture, arm posture, 
 1. Please install all the requirements from requirements.txt.
 2. Run `python3 posture_realtime.py` for testing it in real time. Please sit sufficiently far away from the system showing your lateral view. Please note that this will require a system with atleast 8GB RAM. On a 4 GB RAM, the output is not at all smooth and the output lags very much from the input frame.
 
-**NOTE**: The repository's files all come from the code sources referenced above. We have not used all of them. We only used the “real time” part and added the vibrator peripheral, modified some of the function parameters and output results and their judgments.
+**NOTE**: The repository's files come from the code sources referenced above. We have not used all of them. We only used the “real time” part and added the vibrator peripheral, modified some of the function parameters and output results and their judgments.
