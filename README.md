@@ -1,6 +1,6 @@
 ## Office-Sitting-Posture-Detecting
 
-**This is a software that can detect the sitting position of a person in the office. **
+This is a software that can detect the sitting position of a person in the office.
 
 We used the code from "https://github.com/nvinayvarma189/Sitting-Posture-Recognition" as a basis to extend.
 
