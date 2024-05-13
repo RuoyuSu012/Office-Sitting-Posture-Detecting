@@ -273,5 +273,6 @@ if __name__ == '__main__':
         #plt.close()
     else:
         print("unable to open camera")
-cv2.destroyAllWindows()    
+cv2.destroyAllWindows()
+# TEST
 
