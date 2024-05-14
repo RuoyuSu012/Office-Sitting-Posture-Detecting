@@ -228,7 +228,7 @@ if __name__ == '__main__':
         cap.set(200,120)
         time.sleep(2)
 
-        bad_posture_history = deque(maxlen=20)
+        bad_posture_history = deque(maxlen=10)
        # bad_posture_history_list = []
 
     
@@ -253,7 +253,7 @@ if __name__ == '__main__':
                 print("Unknown posture")
                 bad_posture_history.append(0)
 
-            bad_posture_percentage = sum(bad_posture_history) / 20 * 100
+            bad_posture_percentage = sum(bad_posture_history) / 10 * 100
     #        bad_posture_history_list.append(bad_posture_percentage)
             print(bad_posture_percentage)
 
