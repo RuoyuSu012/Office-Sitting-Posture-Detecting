@@ -4,7 +4,7 @@ This is a software that can detect the sitting position of a person in the offic
 
 We used the code from "https://github.com/nvinayvarma189/Sitting-Posture-Recognition" as a basis to extend.
 
-The output can tell you how a person sits, including back posture, arm posture, and leg posture, and outputs (analysis/evaluate) whether the person's sitting posture is “bad posture” or not.
+The output can tell you how a person sits, including back posture, arm posture, and leg posture, and outputs (analyse/evaluate) whether the person's sitting posture is “bad posture” or not.
 
 ## Files
 `Sitting-Posture-Recognition-master/model.py` - contains architecture of the model.
