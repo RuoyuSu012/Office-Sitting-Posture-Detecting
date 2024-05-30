@@ -48,7 +48,6 @@ def process (input_image, params, model_params):
 
     all_peaks = [] #To store all the key points which a re detected.
     peak_counter = 0
-    
     prinfTick(1) #prints time required till now.
 
     for part in range(18):
@@ -105,7 +104,7 @@ def checkPosition(all_peaks):
         degrees = round(math.degrees(angle))
         if (f):
             degrees = 180 - degrees
-        if (degrees<70):
+        if (degrees<75):
             return 1
         elif (degrees > 105):
             return -1
@@ -133,22 +132,22 @@ def checkHandFold(all_peaks):
                     distance  = calcDistance(all_peaks[3][0][0:2],all_peaks[4][0][0:2]) #distance between right arm-joint and right palm.
                     armdist = calcDistance(all_peaks[2][0][0:2], all_peaks[3][0][0:2]) #distance between left arm-joint and left palm.
                     if (distance < (armdist + 100) and distance > (armdist - 100) ): #this value 100 is arbitary. this shall be replaced with a calculation which can adjust to different sizes of people.
-                        print("Not Folding Hands")
+                        print("Hand status: Not Folding Hands")
                     else: 
-                        print("Folding Hands")
+                        print("Hand status: Folding Hands")
             except Exception as e:
-                print("Folding Hands")
+                print("Hand status: Folding Hands")
     except Exception as e:
         try:
             if(all_peaks[7][0][0:2]):
                 distance  = calcDistance( all_peaks[6][0][0:2] ,all_peaks[7][0][0:2])
                 armdist = calcDistance(all_peaks[6][0][0:2], all_peaks[5][0][0:2])
                 if (distance < (armdist + 100) and distance > (armdist - 100)):
-                    print("Not Folding Hands")
+                    print("Hand status: Not Folding Hands")
                 else: 
-                    print("Folding Hands")
+                    print("Hand status: Folding Hands")
         except Exception as e:
-            print("Unable to detect arm joints")
+            print("Hand status: Unable to detect arm joints")
         
 
 def calcDistance(a,b): #calculate distance between two points.
@@ -176,13 +175,13 @@ def checkKneeling(all_peaks):
             leftdegrees = 180 - leftdegrees
             rightdegrees = 180 - rightdegrees
         if (leftdegrees > 60  and rightdegrees > 60): # 60 degrees is trail and error value here. We can tweak this accordingly and results will vary.
-            print ("Both Legs are in Kneeling")
+            print ("Leg status: Both Legs are in Kneeling")
         elif (rightdegrees > 60):
-            print ("Right leg is kneeling")
+            print ("Leg status: Right leg is kneeling")
         elif (leftdegrees > 60):
-            print ("Left leg is kneeling")
+            print ("Leg status: Left leg is kneeling")
         else:
-            print ("Not kneeling")
+            print ("Leg status: Not kneeling")
             return 1
 
     except IndexError as e:
@@ -197,12 +196,12 @@ def checkKneeling(all_peaks):
             if (f == 0):
                 degrees = 180 - degrees
             if (degrees > 60):
-                print ("Both Legs Kneeling")
+                print ("Leg status: Both Legs Kneeling")
             else:
-                print("Not Kneeling")
+                print("Leg status: Not Kneeling")
                 return 1
         except Exception as e:
-            print("legs not detected")
+            print("Leg status: legs not detected")
             return 1
 
 
@@ -240,17 +239,18 @@ if __name__ == '__main__':
             canvas, position, kneel = process(frame, params, model_params)
             cv2.imshow("capture",canvas)
             if position ==1:
-                print("Hunchback")
+                print("Back status: Hunchback")
             elif position == -1:
-                print("Reclined")
+                print("Back status: Reclined")
             else:
-                print("straight")
+                print("Back status: straight")
 
             if position == 1 or position == -1 or kneel != 1:
                 print("Bad posture")
                 bad_posture_history.append(1)
             else:
                 print("Unknown posture")
+                # The camera's detection area does not recognize the entire person，so only output "unknown posture".
                 bad_posture_history.append(0)
 
             bad_posture_percentage = sum(bad_posture_history) / 10 * 100
@@ -258,16 +258,17 @@ if __name__ == '__main__':
             print(bad_posture_percentage)
 
             if bad_posture_percentage >= 80:
-                print("So bad")
+                print("Bad posture, You need to adjust your sitting posture!")
                 test.testing(1)
             elif bad_posture_percentage < 80 and bad_posture_percentage > 60:
-                print("Just soso")
+                print("The posture is still good but seems to get worse.")
 
             else:
-                print("That is fine")
+                print("The posture is fine.")
 
 
             if cv2.waitKey(1) & 0xFF==ord('q'):
+                # click 'q' to end the code run.
                 break
         cap.release()
         #plt.close()

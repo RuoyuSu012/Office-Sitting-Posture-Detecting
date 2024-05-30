@@ -9,7 +9,7 @@ import board
 import adafruit_drv2605
 import busio
 
-
+# Reference link:
 # https://learn.adafruit.com/circuitpython-libraries-on-any-computer-with-mcp2221/windows
 # https://www.adafruit.com/product/2305
 # https://learn.adafruit.com/adafruit-drv2605-haptic-controller-breakout/python-circuitpython
@@ -35,6 +35,6 @@ def testing(int):
     # Stop Vibration 停止振动
     drv.stop()
 
-    print("Vibration test completed.")
+    # print("Vibration test completed.")
 
 
