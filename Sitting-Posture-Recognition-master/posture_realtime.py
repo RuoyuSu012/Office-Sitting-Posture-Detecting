@@ -201,7 +201,7 @@ def checkKneeling(all_peaks):
                 print("Leg status: Not Kneeling")
                 return 1
         except Exception as e:
-            print("Leg status: legs not detected")
+            print("Leg status: Legs not detected")
             return 1
 
 
@@ -243,7 +243,7 @@ if __name__ == '__main__':
             elif position == -1:
                 print("Back status: Reclined")
             else:
-                print("Back status: straight")
+                print("Back status: Straight")
 
             if position == 1 or position == -1 or kneel != 1:
                 print("Bad posture")

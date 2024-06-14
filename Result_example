@@ -1,0 +1,30 @@
+When you run the code, you will see the real-time person's posture status and the results.
+
+The following are the results' explanations
+
+1. Processing time1
+    - Indicate the time taken from the start of the program to the completion of the key points detection of the person.
+
+2. Processing time2
+    - Indicate the time taken from the start of the program to the completion of keypoint plotting.
+
+<note: These times are used to evaluate the processing speed and performance of the code during critical steps>
+
+3. Leg status
+    - Both Legs Kneeling / Not Kneeling / Legs not detected
+
+4. Hand status
+    - Not Folding Hands / Folding Hands / Unable to detect arm joints
+
+5. Back status
+    - Hunchback / Reclined / Straight
+
+6. Current posture status
+    - Bad posture / Unknown(good) posture
+    - This result depends on the above results of leg, hand, and back status. This result is real-time.
+
+7. Percentage
+    - Represent the percentage of “bad posture” in the last 10 tests
+
+8. Remind
+    - If percentage > 80, the vibrator on the table will vibrate and there will be a reminder of message "Bad posture, You need to adjust your sitting posture!"
