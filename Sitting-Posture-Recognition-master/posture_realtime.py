@@ -250,11 +250,11 @@ if __name__ == '__main__':
                 bad_posture_history.append(1)
             else:
                 print("Unknown posture")
-                # The camera's detection area does not recognize the entire person，so only output "unknown posture".
+
                 bad_posture_history.append(0)
 
             bad_posture_percentage = sum(bad_posture_history) / 10 * 100
-    #        bad_posture_history_list.append(bad_posture_percentage)
+    #        bad_posture_history_list.append(bad_posture_percentage)q
             print(bad_posture_percentage)
 
             if bad_posture_percentage >= 80:
