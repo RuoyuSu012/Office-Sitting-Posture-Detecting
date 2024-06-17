@@ -254,7 +254,7 @@ if __name__ == '__main__':
                 bad_posture_history.append(0)
 
             bad_posture_percentage = sum(bad_posture_history) / 10 * 100
-    #        bad_posture_history_list.append(bad_posture_percentage)q
+    #
             print(bad_posture_percentage)
 
             if bad_posture_percentage >= 80:
